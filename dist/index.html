@@ -30,6 +30,7 @@
 
                <div class="search">
                    <input class="search-city" type="search"  name="search" id="searchCity" placeholder="Search City...">
+                   <span class="error-message">City name is incorrect</span>
                </div>
                <div class="settings">
                 <svg style="width:24px;height:24px" viewBox="0 0 24 24">
@@ -55,8 +56,8 @@
           <div class="days">
             <div class="day searched-day">
                 <div class="top-div">
-                    <div class="today">Monday</div>
-                    <div class="time-now">11:42 PM</div>
+                    <div class="current-today">Monday</div>
+                    <div class="time-now">11:42:00 PM <p class="timedifference">1 hour ahead</p></div>
                 </div>
                 <div class="down-div">
                   <div class="down-div-info">  
@@ -64,12 +65,12 @@
                     <div class="degree-icon">ICON</div>
                 </div>
                 <div class="main-weather-info">
-                    <p class="real-feel">Real Feel: <span>18</span></p>
-                    <p class="wind">Wind: NE, <span>5-8km/h</span></p>
-                    <p class="pressure">Pressure: <span>1000MB</span></p>
-                    <p class="humidity">Humidity: <span>51%</span></p>
-                    <p class="sunrise">Sunrise <span>6:02 AM</span></p>
-                    <p class="sunset">Sunset <span>9:18PM</span></p>
+                    <p class="current-real-feel">Real Feel: <span>18</span></p>
+                    <p class="current-wind">Wind: NE, <span>5-8km/h</span></p>
+                    <p class="current-pressure">Pressure: <span>1000MB</span></p>
+                    <p class="current-humidity">Humidity: <span>51%</span></p>
+                    <p class="current-sunrise">Sunrise <span>6:02 AM</span></p>
+                    <p class="current-sunset">Sunset <span>9:18PM</span></p>
                 </div>
     
                 </div>
@@ -209,7 +210,6 @@
         </div>
 
         
-
     </div>
     
 </body>

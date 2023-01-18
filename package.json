@@ -21,6 +21,7 @@
     "webpack-cli": "^5.0.1"
   },
   "dependencies": {
-    "chart.js": "^4.1.2"
+    "chart.js": "^4.1.2",
+    "date-fns": "^2.29.3"
   }
 }
