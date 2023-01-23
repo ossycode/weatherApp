@@ -5,11 +5,15 @@ export const forcastAirqualitySwitchLabel = document.querySelector('.switch-butt
 
 
 export const errorMessage = document.querySelector('.error-message');
-
-
+export const degreeUnit = document.querySelector('.degreeUnit')
+export const footerDegree = document.querySelector('.footer-degree')
+export const footerDate = document.querySelector('.footer-date')
+export const footerLocation = document.querySelector('.footer-location')
+export const currentDecription = document.querySelector('.current-description');
+export const locationName = document.querySelector('.location-name');
 export const mainDegree = document.querySelector('.main-degree');
 export const mainDegreeIcon = document.querySelector('.degree-icon');
-export const currentDate = document.querySelector('.current-today');
+export const currentDay = document.querySelector('.current-today');
 export const currentTime = document.querySelector('.time-now');
 export const currentRealFeel = document.querySelector('.current-real-feel');
 export const currentPressure = document.querySelector('.current-pressure');

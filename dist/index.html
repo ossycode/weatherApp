@@ -25,7 +25,7 @@
                 <svg style="width:15px;height:15px" viewBox="0 0 24 24">
                     <path fill="currentColor" d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" />
                 </svg>
-                <p>London, United Kingdom</p>
+                <span class="location-name">London, United Kingdom</span>
                </div>
 
                <div class="search">
@@ -57,20 +57,27 @@
             <div class="day searched-day">
                 <div class="top-div">
                     <div class="current-today">Monday</div>
-                    <div class="time-now">11:42:00 PM <p class="timedifference">1 hour ahead</p></div>
+                    <div class="time">
+                        <span class="time-now">Time</span>
+                        <p class="timedifference"></p>
+                    </div>
                 </div>
                 <div class="down-div">
+                    <span class="current-description"></span>
                   <div class="down-div-info">  
-                    <div class="main-degree">16</div>
-                    <div class="degree-icon">ICON</div>
+                    <div class="main-degree">tem</div>
+                     <span class="degreeUnit">°F</span>
+                    <div class="degree-icon">
+                        
+                    </div>
                 </div>
                 <div class="main-weather-info">
-                    <p class="current-real-feel">Real Feel: <span>18</span></p>
-                    <p class="current-wind">Wind: NE, <span>5-8km/h</span></p>
-                    <p class="current-pressure">Pressure: <span>1000MB</span></p>
-                    <p class="current-humidity">Humidity: <span>51%</span></p>
-                    <p class="current-sunrise">Sunrise <span>6:02 AM</span></p>
-                    <p class="current-sunset">Sunset <span>9:18PM</span></p>
+                    <p>Real Feel: <span class="current-real-feel"></span><span></span>°</p>
+                    <p>Wind speed: <span class="current-wind"></span></p>
+                    <p >Pressure: <span class="current-pressure"></span></p>
+                    <p >Humidity: <span class="current-humidity"></span></p>
+                    <p>Sunrise: <span class="current-sunrise"></span></p>
+                    <p >Sunset: <span class="current-sunset"></span></p>
                 </div>
     
                 </div>
@@ -209,7 +216,11 @@
 
         </div>
 
-        
+    <div class="footerDiv">
+        <div class="footer-degree">Degree</div>
+        <div class="footer-location">Location</div>
+        <div class="footer-date">Date</div>
+    </div>
     </div>
     
 </body>
