@@ -24,4 +24,10 @@ export const currentSunset = document.querySelector('.current-sunset');
 export const timeDifference = document.querySelector('.timedifference');
 
 
+// export const weekDays = document.querySelectorAll('.day')
+// export const weekDayIcon = document.querySelectorAll('.icon')
+// export const weekDayTemp = document.querySelectorAll('.degree')
+export const weeklyDaysDiv = document.querySelector('.seven-days')
+
+export const bigCityContainer = document.querySelector('.bigCityContainer')
 

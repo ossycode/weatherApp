@@ -7,6 +7,7 @@ import {dateFormat, capitaliseString,
     getSunriseOrSunsetTime, timeFormat} from './utilities'
 import {getWeatherIcon} from './weathericons'
 import * as domElem from './domCollection'
+import { DomPlatform } from 'chart.js'
 
 var countries = require("i18n-iso-countries");
 countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
@@ -58,15 +59,87 @@ export async function displayCurrentCity (currentCity) {
    domElem.currentWind.textContent = formatDistance(currentData.current.wind_speed, data.settings.units)
    domElem.currentSunrise.textContent = timeFormat(currentData.current.sunrise, offset, data.settings.units)
    domElem.currentSunset.textContent = timeFormat(currentData.current.sunset, offset, data.settings.units)
-    
-  
-
-   
 
    domElem.footerDegree.textContent =  `${formatTemperature(currentData.current.temp)} ${formatUnite(data.settings.units)}`
-
-   
 
 }
 
 
+export async function displayDailyWeather(currentCity) {
+ const currentData = await getFullWeatherData(currentCity)
+ const dailyData = currentData.daily
+ dailyData.forEach(function(day, index) {
+     if (index != 0){
+     let date = dateFormat(day.dt, currentData.timezone_offset, 'abbr')
+     const  eachWeekDay = document.createElement('div')
+     eachWeekDay.classList.add('day')
+
+      const  weekDay = document.createElement('span')
+      weekDay.classList.add('weekdays')
+      weekDay.textContent = date.dayOfWeek
+    
+
+      const weekDayMaxTemp = document.createElement('span')
+      weekDayMaxTemp.classList.add('degree')
+      weekDayMaxTemp.textContent = `${formatTemperature(day.temp.max)} ${formatUnite(data.settings.units)}`
+    
+      const weekDayMinTemp = document.createElement('span')
+      weekDayMinTemp.classList.add('min-temp')
+      weekDayMinTemp.textContent = `${formatTemperature(day.temp.min)} ${formatUnite(data.settings.units)}`
+
+
+      const weekDayIcon = document.createElement('span')
+      weekDayIcon.classList.add('icon')
+      weekDayIcon.innerHTML = getWeatherIcon(day.weather[0].icon)
+      
+      eachWeekDay.append(weekDay, weekDayMaxTemp, weekDayMinTemp,  weekDayIcon)
+      
+      domElem.weeklyDaysDiv.appendChild(eachWeekDay)
+     }
+ });
+    
+};
+
+
+export async function displayBigCitiesWeather(bigCities) {
+    bigCities.forEach( async bigcity => {
+    const currentData = await getFullWeatherData(bigcity)
+    const bigCity = document.createElement('div')
+    bigCity.classList.add('bigCity')
+
+    const bigCityLeft = document.createElement('div')
+    bigCityLeft.classList.add('bigCity-left')
+    
+    const bigCityRight = document.createElement('div')
+    bigCityRight.classList.add('bigCity-left')
+
+    const bigCityLocation = document.createElement('div');
+    bigCityLocation.classList.add("big-city-location")
+    
+
+    let country = document.createElement('p')
+    country.textContent = currentData.country
+
+    let city = document.createElement('h4')
+    city.textContent = currentData.name
+
+    let description = document.createElement('p')
+    description.textContent = capitaliseString(currentData.current.weather[0].description)
+
+    let icon = document.createElement('div')
+    icon.innerHTML = getWeatherIcon(currentData.current.weather[0].icon)
+
+    let temp = document.createElement('div')
+    temp.textContent = `${formatTemperature(currentData.current.temp)} ${formatUnite(data.settings.units)}`
+
+
+    bigCityRight.append(temp, icon)
+    bigCityLocation.append(country, city)
+    bigCityLeft.append(bigCityLocation, description)
+    bigCity.append(bigCityLeft, bigCityRight)
+
+    domElem.bigCityContainer.append(bigCity)
+
+    });
+
+} 

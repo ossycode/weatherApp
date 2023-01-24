@@ -1,13 +1,15 @@
 import * as domElem from './domCollection'
 import {getFullWeatherData} from './apiCalls'
 import {data} from './localStorageManager'
-import {displayCurrentCity} from './views'
+import {displayCurrentCity, displayDailyWeather, displayBigCitiesWeather} from './views'
 import * as utils from './utilities'
 
 
 
 window.addEventListener('load', () => {
     displayCurrentCity(data.currentCity.city)
+    displayDailyWeather(data.currentCity.city)
+    displayBigCitiesWeather(data.bigCities)
 })
 
 

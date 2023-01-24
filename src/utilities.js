@@ -50,7 +50,7 @@ export function formatToday(time) {
 
 // format a unix date
 // return only the day of the week is formatedDate = 'day
-export function  dateFormat(unix, offset){
+export function  dateFormat(unix, offset, formatdate = 'full'){
 	const date = fromUnixTime(unix + offset).toUTCString();
 	// console.log("date is " +  date)
 	let dateSuffix 
@@ -77,22 +77,24 @@ export function  dateFormat(unix, offset){
 	}
 
 	// change day abbreviation to full (eg Sun to Sunday)
-	if (dayOfWeek === 'Mon') {
-		dayOfWeek = 'Monday';
-	}else if (dayOfWeek === 'Tue') {
-		dayOfWeek = 'Tuesday';
-	}else if (dayOfWeek === 'Wed') {
-		dayOfWeek = 'Wednesday';
-	}else if (dayOfWeek === 'Thu') {
-		dayOfWeek = 'Thursday';
-	}else if (dayOfWeek === 'Fri') {
-		dayOfWeek = 'Friday';
-	}else if (dayOfWeek === 'Sat') {
-		dayOfWeek = 'Saturday';
-	}else if (dayOfWeek === 'Sun') {
-		dayOfWeek = 'Sunday';
-	}
 
+	if (formatdate === 'full') {
+		if (dayOfWeek === 'Mon') {
+			dayOfWeek = 'Monday';
+		}else if (dayOfWeek === 'Tue') {
+			dayOfWeek = 'Tuesday';
+		}else if (dayOfWeek === 'Wed') {
+			dayOfWeek = 'Wednesday';
+		}else if (dayOfWeek === 'Thu') {
+			dayOfWeek = 'Thursday';
+		}else if (dayOfWeek === 'Fri') {
+			dayOfWeek = 'Friday';
+		}else if (dayOfWeek === 'Sat') {
+			dayOfWeek = 'Saturday';
+		}else if (dayOfWeek === 'Sun') {
+			dayOfWeek = 'Sunday';
+		}
+	}
 	// console.log(date)
 	// return the full date
 
