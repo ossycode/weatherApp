@@ -2,11 +2,14 @@
 
 export const forcastAirqualitySwitch = document.getElementById('button-checkbox');
 export const forcastAirqualitySwitchLabel = document.querySelector('.switch-button-label');
+export const searchInput = document.querySelector('.search-city');
+export const errorSpan = document.querySelector('.error-message');
 
 
 export const errorMessage = document.querySelector('.error-message');
 export const degreeUnit = document.querySelector('.degreeUnit')
 export const footerDegree = document.querySelector('.footer-degree')
+
 export const footerDate = document.querySelector('.footer-date')
 export const footerLocation = document.querySelector('.footer-location')
 export const currentDecription = document.querySelector('.current-description');
@@ -30,4 +33,8 @@ export const timeDifference = document.querySelector('.timedifference');
 export const weeklyDaysDiv = document.querySelector('.seven-days')
 
 export const bigCityContainer = document.querySelector('.bigCityContainer')
+
+export const globalMap = document.querySelector('.globalMap')
+
+
 

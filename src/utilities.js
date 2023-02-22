@@ -1,17 +1,5 @@
-import Chart from 'chart.js/auto'
 import {differenceInMilliseconds, differenceInMinutes,format, fromUnixTime, getUnixTime,} from "date-fns";
 
-
-// export function convertWeather(temp, unit) {
-// 	let celcius = Math.round(parseFloat(temp.main.temp)-273.15);
-// 	let fahrenheit = Math.round(((parseFloat(temp.main.temp)-273.15)*1.8)+32); 
-
-
-// 	return 
-	
-	
-// 	return {celcius, fahrenheit}
-// }
 
 export function formatTemperature(temperature) {
 	return Math.round(temperature)
@@ -33,12 +21,23 @@ export function formatDistance (data, units) {
 	  }
 }
 
+// Convert  fahrenheit* to celsius*
+export function fahrenheitToCelsius(F) {
+	const c = ((F - 32) * 5) / 9;
+	return formatTemperature(c);
+  }
+  fahrenheitToCelsius
+// Convert  celsius* to fahrenheit*
+  export function celsiusToFahrenheit(C) {
+	const f = (C * 9) / 5 + 32;
+	return formatTemperature(f);
+  }
 // Capitalise a string 
 export function capitaliseString (string) {
 	const capitalzedName = 
 	string.charAt(0).toUpperCase() +
 	string.slice(1);
-	console.log(capitalzedName)
+	// console.log(capitalzedName)
 	return capitalzedName;
 }
 
@@ -116,32 +115,12 @@ export function getCurrentCityTime (offset) {
 	return unixTime;
 }
 
-// get the sunrise or sunset time
-// export function getSunriseOrSunsetTime(setTime, timeZone) {
-//  const time =  new Date(setTime * 1000).toLocaleTimeString('default',  timeZone)
-//  console.log(time)
-//  const min = time.indexOf(3,4)
-//  console.log(min)
-
-
-// //  toLocaleString('default',  timeZone);
-// //    const locationTime = settime + 1000 * offset;
-// // 	const unixSetTime = locationTime / 1000;
-
-// 	// var hours = dt.getHours() ; // gives the value in 24 hours format
-// 	var AmOrPm = time >= 12 ? 'pm' : 'am';
-// 	time = (time % 12) || 12;
-// 	var minutes = dt.getMinutes() ;
-// 	var finalTime = "Time  - " + hours + ":" + minutes + " " + AmOrPm; 
-// 	return finalTime;
-//   }
-
 export function getTheTimeDifference (locationTime) {
 	const localTime = new Date();
 	const formatCityTime = fromUnixTime(locationTime)
 
 	const timeDifference = (differenceInMinutes(localTime, formatCityTime) / 60).toFixed(0);
-	console.log(timeDifference)
+	// console.log(timeDifference)
 
 	return timeDifference;
 }
@@ -198,61 +177,3 @@ export function timeFormat (unix, offset, unit) {
 	return `${hour}:${minute} ${timeSuffix}`;
 	}
 }
-
-
-
-
-(async function() {
-  const data = [
-    { year: 2010, count: 10 },
-    { year: 2011, count: 20 },
-    { year: 2012, count: 15 },
-    { year: 2013, count: 25 },
-    { year: 2014, count: 22 },
-    { year: 2015, count: 30 },
-    { year: 2016, count: 28 },
-  ];
-
-  new Chart(
-    document.getElementById('graph'),
-    {
-      type: 'bar',
-      options: {
-        animation: false,
-        plugins: {
-          legend: {
-            display: false
-          },
-          tooltip: {
-            enabled: false
-          }
-        },
-		layout: {
-            // padding:  {
-			// 	top: 20,
-			// 	left: 20,
-			// 	right: 20,
-			// 	bottom: 20,
-
-			// }
-        },
-		
-      },
-      data: {
-        labels: data.map(row => row.year),
-        datasets: [
-          {
-            label: 'Acquisitions by year',
-            data: data.map(row => row.count),
-			backgroundColor: '#fcd34d',
-			barThickness: 4,  // number (pixels) or 'flex'
-            maxBarThickness: 5 // number (pixels)
-
-
-          }
-        ]
-      }
-    }
-  );
-})();
- 
